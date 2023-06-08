@@ -50,9 +50,8 @@ Frankenstein is an app that allows a user to see labs, scientists, and experimen
     - Ex: name: “Fermilab”
 - Scientists have a name, specialty, and university attended
     - Ex: name: “Marie Curie”, specialty: “radioactivity”, university: “University of Paris”
-- Experiments have a name, objective (description), start date, end date
-    - Ex: name: “MINERvA”, objective: “study neutrino reactions with five different nuclei”, start date: “08/03/20”, end date: “10/27/21”
-    - For this app, it does not matter how you format the experiments’s start and end dates
+- Experiments have a name, objective (description), and a num_months attribute which represents the duration of the experiment
+    - Ex: name: “MINERvA”, objective: “study neutrino reactions with five different nuclei”, num_months: 4
 - Labs have many scientists
 - Scientists belong to a lab
 - Scientists have many experiments
