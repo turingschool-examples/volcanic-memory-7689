@@ -2,13 +2,10 @@
 <p>Specialty: <%= @scientist.specialty %><p>
 <p>University: <%= @scientist.university %><p>
 <p>Lab: <%= @scientist.lab.name %><p>
-<p>Experiments: <p>Experiments: <% @scientist.experiments.each do |experiment| %>
-    <% if @scientist.experiments.last == experiment %>
-      <%= experiment.name %>
-    <% else %>
-      <%= experiment.name %>,
-    <% end %>
+<ul class="experiment-list">Experiments: 
+  <% @scientist.experiments.each do |experiment| %>
+    <li id=<%= "#{experiment.id}" %>><%= experiment.name %> <%= button_to "Remove", scientist_experiment_path(@scientist.id, experiment.id), method: :delete %></li>
   <% end %>
-</p>
+</ul>
 
 
