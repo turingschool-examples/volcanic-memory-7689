@@ -1,0 +1,8 @@
+<h1>Experiments</h1>
+
+<% Experiment.experiments_over_half_year_desc.each do |experiment| %>
+  <h3>Name: <%= experiment.name %></h3>
+  <h3>Objective: <%= experiment.objective %></h3>
+  <h3>Length: <%= experiment.num_months %></h3>
+  ================================================================
+<% end %>

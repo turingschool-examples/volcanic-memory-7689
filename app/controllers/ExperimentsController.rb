@@ -6,4 +6,8 @@ class ExperimentsController < ApplicationController
     @scientist.experiments.delete(experiment)
     redirect_to "/labs/#{@lab.id}/scientists/#{@scientist.id}"
   end
+
+  def index
+    @experiments = Experiment.all
+  end
 end
