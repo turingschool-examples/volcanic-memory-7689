@@ -10,5 +10,8 @@
 <ul>
   <% @scientist.experiments.each do |experiment| %>
     <li><%= experiment.name %></li>
+      <%= form_with url: lab_scientist_experiment_path(@lab, @scientist, experiment), method: :delete, local: true do |form| %>
+    <%= form.submit "Remove #{experiment.name}" %>
+    <% end %>
   <% end %>
 </ul>
