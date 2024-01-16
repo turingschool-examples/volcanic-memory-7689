@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   resources :experiments, only: [:index]
   resources :labs, only: [] do
     resources :scientists, controller: 'lab_scientists', only: [:show] do
-      resources :experiments, only: [:destroy] do
-      end
+      resources :experiments, controller: 'scientist_experiments', only: [:destroy]#much better with the joined controller
     end
   end
 end
