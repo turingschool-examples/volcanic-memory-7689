@@ -26,6 +26,6 @@ describe "Scientists show page" do
     expect(page).to have_content("Specialty: Physics")
     expect(page).to have_content("University: University of Munich")
     expect(page).to have_content("Lab: CERN")
-    expect(page).to have_content("Experiments: Theoretical Physics")
+    expect(page).to have_content("Experiments: Experiment 1")
   end
 end
