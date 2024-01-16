@@ -10,3 +10,6 @@
 
 <h2>Associated Experiments</h2>
 
+  <% @scientist.experiments.each do |experiment| %>
+    <p>Name: <%= experiment.name %>
+  <% end %>
