@@ -1,0 +1,25 @@
+<body>
+  <div class="row">
+    <p class='col-12'><%= @scientist.name %></p>
+  </div>
+
+  <p>Assigned to Lab: <%= @lab.name %></p><br/>
+
+  <p>Specialty: <%= @scientist.specialty %></p>
+  <p>University: <%= @scientist.university %></p>
+
+  <div class="row">
+    <p class='col-12'>Experiments</p>
+  </div>
+
+  <% if @scientist.experiments.exists? %>
+    <ul>
+      <% @scientist.experiments.each do |experiment| %>
+        <p><li><%= experiment.name %></li></p>
+      <% end %>
+    </ul>
+  <% else %>
+    <p><%= @scientist.name %> is not conducting any experiments</p>
+  <% end %>
+
+</body>
