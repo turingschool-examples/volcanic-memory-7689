@@ -19,14 +19,14 @@ RSpec.describe "the scientist show page", type: :feature do
       
       scientist.experiments << experiment_1
       scientist.experiments << experiment_2
-
       visit scientist_path(scientist)
+      save_and_open_page
 
       expect(page).to have_content(scientist.name)
       expect(page).to have_content(scientist.specialty)
       expect(page).to have_content(scientist.university)
 
-      expect(page).to have_content(lab.scientist.name)
+      expect(page).to have_content(scientist.lab.name)
 
       expect(page).to have_content(experiment_1.name)
       expect(page).to have_content(experiment_2.name)
