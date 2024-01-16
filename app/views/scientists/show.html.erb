@@ -1,0 +1,16 @@
+<h1>Scientist's Show Page</h1>
+
+  <p> Name: <%= @scientist.name %>
+  <br>
+  <p>Specialty: <%= @scientist.specialty %>
+  <br>
+  <p>University: <%= @scientist.university %>
+  <br>
+  <p>Lab: <%= @scientist.lab.name %>
+
+<h2>Associated Experiments</h2>
+
+  <% @scientist.experiments.each do |experiment| %>
+    <p>Name: <%= experiment.name %>
+    <%= button_to "Remove", scientist_experiment_path(@scientist, experiment), method: :patch %>
+  <% end %>
