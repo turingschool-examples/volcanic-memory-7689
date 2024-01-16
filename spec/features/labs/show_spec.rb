@@ -20,7 +20,7 @@ RSpec.describe "labs show page", type: :feature do
 
   it "displays the names of all scientists who work at the lab, in descending order of experiments they are working on" do 
     visit lab_path(@radion.id)
-    save_and_open_page
+    
     expect(page).to have_content("Radion Labs")
     expect("Marie Curie - 3").to appear_before("Albert Einstein - 2")
     expect("Albert Einstein - 2").to appear_before("Jonas Salk - 1")
