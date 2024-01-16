@@ -12,12 +12,15 @@ RSpec.describe "the scientist show page", type: :feature do
     # And I see the names of all of the experiments this scientist is running
     
     it "shows all of a scientist's attributes, thier lab, and all associated experiments" do
-      lab = Lab.create!(name: “Fermilab”)
-      scientist = lab.scientist.create!(name: "Marie Curie", specialty: "radioactivity", university: "University of Paris")
+      lab = Lab.create!(name: "Fermilab")
+      scientist = lab.scientists.create!(name: "Marie Curie", specialty: "radioactivity", university: "University of Paris")
       experiment_1 = Experiment.create!(name: "Abby Normal", objective: "Assemble and animate a collection of corpses", num_months: 12)
       experiment_2 = Experiment.create!(name: "Pinky Brain", objective: "Try to take over the world!", num_months: 60)
       
-      visit scientist_path
+      scientist.experiments << experiment_1
+      scientist.experiments << experiment_2
+
+      visit scientist_path(scientist)
 
       expect(page).to have_content(scientist.name)
       expect(page).to have_content(scientist.specialty)

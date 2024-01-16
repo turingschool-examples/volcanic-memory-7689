@@ -1,4 +1,4 @@
 class Experiment < ApplicationRecord
-  belongs_to :scientist
-  belongs_to :lab
+  has_many :scientist_experiments
+  has_many :scientists, through: :scientist_experiments
 end
