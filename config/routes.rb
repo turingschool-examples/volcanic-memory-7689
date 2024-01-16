@@ -9,5 +9,7 @@ Rails.application.routes.draw do
 
   resources :scientists do
     resources :experiments
+    # resources :scientists, only: [:destroy], controller:
   end
 end
+

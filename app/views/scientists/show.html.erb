@@ -1,0 +1,16 @@
+<h1><%= @scientist.name %></h1>
+<p>Specialty: <%= @scientist.specialty %></p>
+<p>University: <%= @scientist.university %></p>
+<p>Lab: <%= @scientist.lab.name %></p>
+
+<h2>Experiments:</h2>
+
+<% @scientist.experiments.each do |experiment| %>
+  <section id="experiment_<%= experiment.id %>">
+    <p><%= experiment.name %></p>
+    <%= button_to 'Remove', remove_experiment_scientist_path(@scientist.id, experiment.id), method: :delete, remote: true %>
+  </section>
+<% end %>
+
+
+
