@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   resources :scientists
   resources :scientist_experiments
+  resources :experiments
 end
