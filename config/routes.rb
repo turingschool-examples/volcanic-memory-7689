@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :experiments, only: [:index]
-  resources :labs, only: [] do
+  resources :labs, only: [:show] do
     resources :scientists, controller: 'lab_scientists', only: [:show] do
       resources :experiments, controller: 'scientist_experiments', only: [:destroy]#much better with the joined controller
     end

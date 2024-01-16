@@ -1,0 +1,7 @@
+<h1><%= @lab.name %></h1>
+
+<h1>Staff:</h1>
+
+<% @lab.scientists.sort_by(&:experiment_count).reverse.each do |scientist| %>
+  <h2>Name: <%= scientist.name %>, Experiments: <%= scientist.experiment_count %></h2>
+<% end %>
