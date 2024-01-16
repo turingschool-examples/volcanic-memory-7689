@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :scientists
   resources :scientist_experiments
   resources :experiments
+  resources :labs
 end

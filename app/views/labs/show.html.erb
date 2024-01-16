@@ -1,0 +1,7 @@
+```html
+<h1><%=@lab.name%></h1>
+<h3> Scientists </h3>
+<% @lab.scientists.experiment_count.each do |sci| %>
+    <p><%= sci.name %> Active Experiments: <%= sci.%></p>
+    
+<% end %>
