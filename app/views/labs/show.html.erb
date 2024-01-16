@@ -3,5 +3,6 @@
 <h3> Scientists </h3>
 <% @lab.scientists.experiment_count.each do |sci| %>
     <p><%= sci.name %> Active Experiments: <%= sci.%></p>
+     <%# what I'm trying to do here is iterate though each scientist and then I'd call a methoid on them in the iteration block. However since you want them ordered I need to do that before the itteration block so that they come out in the correct order. I also need to call the ammount of each sci as that was part of the story. %>
     
 <% end %>
