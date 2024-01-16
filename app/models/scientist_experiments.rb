@@ -1,0 +1,3 @@
+class ScientistExperiment < ApplicationRecord
+
+end

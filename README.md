@@ -57,6 +57,7 @@ Frankenstein is an app that allows a user to see labs, scientists, and experimen
 - Scientists have many experiments
 - Experiments can have many scientists
 
+
 Some of the initial migrations and model set up has been done for you.
 
 ## User Stories
