@@ -18,8 +18,8 @@ RSpec.describe Scientist do
     @scientist_experiments_2 = ScientistExperiment.create!(scientist_id: @scientist_2.id, experiment_id: @experiment_2.id)
   end
 
-  describe "class methods" do
-    describe "::all_experiments" do
+  describe "instance methods" do
+    describe "#all_experiments" do
       it "lists all of the experiments for a scientist" do
         new_experiment = ScientistExperiment.create!(scientist_id: @scientist_1.id, experiment_id: @experiment_2.id)
 
