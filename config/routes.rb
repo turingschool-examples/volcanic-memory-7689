@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   # root "articles#index"
 
 
-  resources :scientists, only: [:show, :destroy] do
-    resources :scientist_experiments, controller: 'scientist_experiments'
-  end
+  resources :scientists, only: [:show, :destroy]
+  resources :experiments, only: [:index]
 
   delete "/scientist_experiments", to: "scientist_experiments#destroy"
+  # resources :scientist_experiments, only: [:destroy]
 end
