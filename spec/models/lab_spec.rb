@@ -16,7 +16,8 @@ RSpec.describe Lab do
   
       @experiment_1 = @scientist_1.experiments.create!(name: "T Virus", objective: "Create a self-propagating, bloodborne virus that transforms the hosts into durable bio-weapons.", num_months: 18)
       @experiment_2 = @scientist_2.experiments.create!(name: "G Virus", objective: "Create a retrovirus that transforms hosts into bio-weapons with greater combat capability than T Virus hosts.", num_months: 24)
-      @experiment_3 = @scientist_1.experiments.create!(name: "T-Veronica Virus", objective: "Create a virus that morphs host psychology to resemble an ant colony.", num_months: 5)
+      @experiment_3 = @scientist_1.experiments.create!(name: "T-Veronica Virus", objective: "Create a virus that morphs host psychology to resemble an ant colony.", num_months: 5) # Sad path: less than 6 months
+      @experiment_3 = @scientist_1.experiments.create!(name: "A Virus", objective: "Create a virus that adapts hosts for use as aquatic bioweapons.", num_months: 6) # Sad path: less than 6 months
       @experiment_4 = @scientist_2.experiments.create!(name: "Las Plagas Parasite", objective: "Create a parasite that retains basic host intelligence.", num_months: 23)
     end
 
