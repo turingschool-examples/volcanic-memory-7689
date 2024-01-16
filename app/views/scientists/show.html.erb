@@ -12,14 +12,15 @@
     <p class='col-12'>Experiments</p>
   </div>
 
-  <% if @scientist.experiments.exists? %>
-    <ul>
-      <% @scientist.experiments.each do |experiment| %>
-        <p><li><%= experiment.name %></li></p>
-      <% end %>
-    </ul>
-  <% else %>
-    <p><%= @scientist.name %> is not conducting any experiments</p>
-  <% end %>
+  <ul>
+    <% if @scientist.experiments.exists? %>
+        <% @scientist.experiments.each do |experiment| %>
+            <p><li><%= experiment.name %>
+            <%= button_to "Remove Experiment", lab_scientist_experiment_path(@lab), method: :delete, params: {scientist_id: @scientist.id, experiment_id: experiment.id} %></li></p>
+        <% end %>
+    <% else %>
+        <p><li><%= @scientist.name %> is not conducting any experiments</li></p>
+    <% end %>
+  </ul>
 
 </body>
