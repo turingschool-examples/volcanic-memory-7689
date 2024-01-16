@@ -1,0 +1,23 @@
+<h1> Scientist's Show Page </h1>
+
+
+<h3> Scientist Info: </h3>
+<p> Name: <%= @scientist.name %> </p>
+<p> Specialty: <%= @scientist.specialty %> </p>
+<p> University: <%= @scientist.university %> </p>
+<p> Lab: <%= @scientist.lab.name %> </p>
+
+
+
+
+  <h3> Experiments: </h3>
+
+    <% @scientist.experiments.each do |experiment| %>
+      <section id=<%="exp-#{experiment.id}" %>>
+        <%= experiment.name %>
+           <%= button_to 'Remove Experiment', "/scientist_experiments?exp_id=#{experiment.id}&sci_id=#{@scientist.id}", method: :delete, data:{turbo: false} %>
+      </section>
+    <% end  %>
+
+
+
