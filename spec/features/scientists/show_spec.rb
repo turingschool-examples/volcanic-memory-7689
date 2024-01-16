@@ -32,9 +32,11 @@ RSpec.describe "Scientist Show Page" do
 
   describe "User Story 2 - Remove an Experiment from a Scienetist" do
     it "has a functioning button to remove every experiment listed from the Scientist, and will not affect another scientist working on the same project" do
+
       within "#experiment-#{@experiment_1.id}" do
         expect(page).to have_button("Remove")
       end
+      
       within "#experiment-#{@experiment_2.id}" do
         expect(page).to have_button("Remove")
         click_button("Remove")
