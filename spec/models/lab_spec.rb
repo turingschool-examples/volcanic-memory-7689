@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Lab do
-  it {should have_many :scientists}
+  describe "relationships" do
+    it { should have_many(:scientists) }
+    it { should have_many(:experiments) }
+    # it { should have_many(:scientists).through(:experiments) }
+  end
 end
