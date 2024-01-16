@@ -37,15 +37,17 @@ describe Scientist do
       scientist_experiment_3 = ScientistExperiment.create!(scientist_id: scientist_2.id, experiment_id: exp_1.id)
       
       visit "/scientists/#{scientist_1.id}"
+      expect(page).to have_content("Life on Mars")
+
       within("#exp-#{exp_1.id}") do
         click_button "Remove Experiment"
       end
-      expect(current_path).to eq("/scientists/#{scientist_1.id}")
 
+      expect(current_path).to eq("/scientists/#{scientist_1.id}")
       expect(page).to_not have_content("Life on Mars")
       
-      
-
+      visit "/scientists/#{scientist_2.id}"
+      expect(page).to have_content("Life on Mars")
     end
   end
 end
