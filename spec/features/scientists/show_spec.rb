@@ -54,16 +54,19 @@ RSpec.describe "the scientist show page", type: :feature do
       scientist_2.experiments << experiment
 
       visit scientist_path(scientist_1)
-      
+
+      expect(page).to have_content(experiment.name)
       expect(page).to have_button("Remove")
       
       click_button("Remove")
       
       expect(current_path).to eq(scientist_path(scientist_1))
-      expect(page).to_not have_contents(experiment.name)
+      expect(page).to_not have_content(experiment.name)
       
       visit scientist_path(scientist_2)
       
-      expect(page).to have_contents(experiment.name)
+      expect(page).to have_content(experiment.name)
+      expect(page).to have_button("Remove")
     end
+  end
 end
