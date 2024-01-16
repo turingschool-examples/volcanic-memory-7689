@@ -1,0 +1,7 @@
+<h1>Experiments</h1>
+
+<ul>
+  <% @experiments.each do |experiment| %>
+    <li><%= experiment.name %> (Duration: <%= experiment.num_months %> months)</li>
+  <% end %>
+</ul>

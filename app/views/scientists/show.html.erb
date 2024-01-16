@@ -1,0 +1,18 @@
+<h1>Scientist Information</h1>
+<p><b>Name:</b> <%= @scientist.name %></p>
+<p><b>Specialty:</b> <%= @scientist.specialty %></p>
+<p><b>University:</b> <%= @scientist.university %></p>
+<p><b>Lab:</b> <%= @scientist.lab.name %></p>
+<h2>Experiments</h2>
+<ul>
+  <% @scientist.experiments.each do |experiment| %>
+    <li>
+      <b><%= experiment.name %></b>
+      <%= button_to 'Delete', scientist_experiment_path(@scientist, experiment), method: :delete %>
+      <ul>
+        <li>Objective: <%= experiment.objective %></li>
+        <li>Duration: <%= experiment.num_months %> months.</li>
+      </ul>
+    </li>
+  <% end %>
+</ul>
