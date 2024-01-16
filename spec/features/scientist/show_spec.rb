@@ -34,7 +34,7 @@ RSpec.describe Scientist, type: :feature do
       expect(page).to have_content("Ultra")
       expect(page).to have_button("Delete")
 
-      click_button "Delete"
+      first(:button, "Delete").click
       expect(current_path).to eq(scientist_path(@scientist1))
       expect(page).not_to have_content("Ultra")
     end
@@ -45,7 +45,7 @@ RSpec.describe Scientist, type: :feature do
       expect(page).to have_content("Ultra")
       expect(page).to have_button("Delete")
 
-      click_button "Delete"
+      first(:button, "Delete").click
       expect(current_path).to eq(scientist_path(@scientist1))
       expect(page).not_to have_content("Ultra")
 

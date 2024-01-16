@@ -13,7 +13,7 @@ RSpec.describe Scientist, type: :model do
     end
 
     it "removes the experiment from the scientist" do
-      @scientist1.delete_experiment(@experiment1.id)
+      @scientist1.remove_experiment(@experiment1.id)
       
       expect(@scientist1.experiments).not_to include(@experiment1)
       expect(@scientist1.experiments).to include(@experiment2)
