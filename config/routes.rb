@@ -10,4 +10,5 @@ Rails.application.routes.draw do
     # Didn't make sense to make it the scientist delete route in the event that deleting a
     # scientist needed to be implemented later. 
   end
+  resources :experiments, only: [:index]
 end
