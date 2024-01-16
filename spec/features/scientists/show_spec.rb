@@ -12,7 +12,8 @@ RSpec.describe "Scientist Show Page" do
     @experiment_2 = Experiment.create!(name: "Time Pod", objective: "create a time traveling machine", num_months: 1)
 
 
-    @scientist_experiments_1 = ScientistExperiment.create!(scientist_id: @scientist_1.id, experiment_id: @experiment_1.id)
+    @marie_minerva = ScientistExperiment.create!(scientist_id: @scientist_1.id, experiment_id: @experiment_1.id)
+    @marie_time_pod = ScientistExperiment.create!(scientist_id: @scientist_1.id, experiment_id: @experiment_2.id)
     @scientist_experiments_2 = ScientistExperiment.create!(scientist_id: @scientist_2.id, experiment_id: @experiment_2.id)
 
     visit scientist_path(@scientist_1.id)
@@ -24,7 +25,26 @@ RSpec.describe "Scientist Show Page" do
       expect(page).to have_content("Specialty: radioactivity")
       expect(page).to have_content("University: University of Paris")
       expect(page).to have_content("Lab: Fermilab")
-      expect(page).to have_content("Experiments: MINERvA")
+      expect(page).to have_content("Experiments: MINERvA, Time Pod")
+    end
+  end
+
+  describe "User Story 2 - Remove an Experiment from a Scienetist" do
+    it "has a functioning button to remove every experiment listed from the Scientist, and will not affect another scientist working on the same project" do
+      within "#experiment-#{@experiment_1.id}" do
+        expect(page).to have_button("Remove")
+      end
+      within "#experiment-#{@experiment_2.id}" do
+        expect(page).to have_button("Remove")
+        click_button("remove")
+      end
+
+      expect(page.current_path).to eq(scientist_path(@scientist_1.id))
+      expect(page).to have_no_content("Time Pod")
+
+      visit scientist_path(@scientist_2.id)
+
+      expect(page).to have_content("Time Pod")
     end
   end
 end
