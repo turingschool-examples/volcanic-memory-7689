@@ -1,0 +1,8 @@
+<h1> Experiment Index Page </h1>
+
+<% @experiments.each do |experiment| %>
+<section id="experiment-<%=experiment.id%>">
+<p> <%= experiment.name %>
+<% end %>
+
+</section>
