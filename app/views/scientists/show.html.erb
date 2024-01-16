@@ -12,5 +12,5 @@
 
   <% @scientist.experiments.each do |experiment| %>
     <p>Name: <%= experiment.name %>
-    <%= button_to "Remove", scientist_path(@scientist), method: :patch %>
+    <%= button_to "Remove", scientist_experiment_path(@scientist, experiment), method: :patch %>
   <% end %>

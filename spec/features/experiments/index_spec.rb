@@ -12,12 +12,14 @@ RSpec.describe "the experiments index page", type: :feature do
       scientist = lab.scientists.create!(name: "Marie Curie", specialty: "radioactivity", university: "University of Paris")
       experiment_1 = Experiment.create!(name: "Abby Normal", objective: "Assemble and animate a collection of corpses", num_months: 12)
       experiment_2 = Experiment.create!(name: "Pinky Brain", objective: "Try to take over the world!", num_months: 60)
-      experiment_3 = Experiment.create!(name: "Brain", objective: "Pull weeds", num_months: 5)
+      experiment_3 = Experiment.create!(name: "Doofus", objective: "Pull weeds", num_months: 5)
+      experiment_4 = Experiment.create!(name: "Wild Child", objective: "Super baby . go", num_months: 100)
       
       scientist.experiments << experiment_1
       scientist.experiments << experiment_2
       scientist.experiments << experiment_3
-
+      scientist.experiments << experiment_4
+      
       visit experiments_path
 
       expect(page).to have_content(experiment_1.name)
