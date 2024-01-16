@@ -8,6 +8,7 @@
   <% @scientist.experiments.each do |experiment| %>
     <li>
       <b><%= experiment.name %></b>
+      <%= button_to 'Delete', scientist_experiment_path(@scientist, experiment), method: :delete %>
       <ul>
         <li>Objective: <%= experiment.objective %></li>
         <li>Duration: <%= experiment.num_months %> months.</li>
