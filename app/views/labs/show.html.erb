@@ -1,0 +1,4 @@
+<h1><%= @lab.name %></h1>
+<% @lab.scientists.display_staff.each do |scientist| %>
+  <%= "#{scientist.name} - #{scientist.exp_count}" %>
+<% end %>
