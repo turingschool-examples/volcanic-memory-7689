@@ -1,0 +1,18 @@
+<h3>Scientist Information</h3>
+
+<p>
+Name: <%= @scientist.name %> <br>
+Specialty: <%= @scientist.specialty %> <br>
+University: <%= @scientist.university %> <br>
+Lab: <%= @lab.name %> <br>
+</p>
+
+Experiments: <% @scientist.experiments.each do |experiment| %>
+  <%= experiment.name %>
+  <%= form_with url: "/scientists/#{@scientist.id}/scientist_experimnets", method: :delete, local: true do |f| %>
+  <%= f.label :experiment_id %>
+  <%= f.text_field :experiment_id  %>
+  <%= f.submit %>
+   <%= button_to "/scientists/#{@scientist.id}/scientist_experiments", method: :delete, local: true do |f| %>
+<% end %>
+<% end %>
