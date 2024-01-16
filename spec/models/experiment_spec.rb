@@ -10,6 +10,11 @@ RSpec.describe Experiment do
     @experiment_6 = Experiment.create!(name: "Pie Pod", objective: "create a time traveling machine", num_months: 16)
   end
 
+  describe "relationships" do
+    it {should have_many :scientist_experiments}
+    it {should have_many(:scientists).through(:scientist_experiments)}
+  end
+
   describe "class methods" do
     describe "::long_running_experiments" do
       it "returns experiments that have been running longer than 6 months, longest to shortest" do
