@@ -19,6 +19,7 @@
 @experiment_6 = Experiment.create!(name: "Experiment 6", objective: "Quantum Mechanics", num_months: 48)
 
 @science_experiment_1 = ScientistExperiment.create!(scientist: @scientist_1, experiment: @experiment_1)
+@science_experiment_4 = ScientistExperiment.create!(scientist: @scientist_1, experiment: @experiment_2)
 @science_experiment_2 = ScientistExperiment.create!(scientist: @scientist_2, experiment: @experiment_1)
 @science_experiment_3 = ScientistExperiment.create!(scientist: @scientist_3, experiment: @experiment_2)
 @science_experiment_4 = ScientistExperiment.create!(scientist: @scientist_4, experiment: @experiment_4)

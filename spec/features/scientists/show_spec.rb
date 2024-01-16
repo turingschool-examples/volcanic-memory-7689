@@ -16,6 +16,7 @@ describe "Scientists show page" do
     @experiment_6 = Experiment.create!(name: "Experiment 6", objective: "Quantum Mechanics", num_months: 48)
 
     @science_experiment_1 = ScientistExperiment.create!(scientist: @scientist_1, experiment: @experiment_1)
+    @science_experiment_4 = ScientistExperiment.create!(scientist: @scientist_1, experiment: @experiment_2)
     @science_experiment_2 = ScientistExperiment.create!(scientist: @scientist_2, experiment: @experiment_1)
     @science_experiment_3 = ScientistExperiment.create!(scientist: @scientist_3, experiment: @experiment_2)
     @science_experiment_4 = ScientistExperiment.create!(scientist: @scientist_4, experiment: @experiment_4)
@@ -34,8 +35,15 @@ describe "Scientists show page" do
     expect(page).to have_content( @experiment_1)
   end
 
+  describe "User Story 2" do
     it "can remove an experiment for a scientist" do
-      expect(page).to have_button("Remove #{@experiment_1.name} from #{@scientist_1.name} page")
-      expect(page).to have_button("Remove #{@experiment_3.name} from #{@scientist_1.name} page")
+      expect(page).to have_content(@experiment_1.name)
+      click_button "Remove Experiment"
+      expect(current_path).to eq("/scientists/#{@scientist_1.id}")
+      expect(page).to have_content(@experiment_2.name)
+      expect(page).to_not have_content(@experiment_4.name)
+      visit "/scientists/#{@scientist_2.id}"
+      expect(page).to have_content(@experiment_1.name)
     end
+  end
 end
