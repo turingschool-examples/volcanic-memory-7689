@@ -1,10 +1,6 @@
 class ExperimentsController < ApplicationController
-  def edit
-
-  end
-
-  def update
-  
+  def index
+    @experiments = Experiment.where("num_months > 6").order(num_months: :desc)
   end
 
 end
