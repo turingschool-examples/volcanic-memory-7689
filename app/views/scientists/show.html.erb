@@ -5,4 +5,10 @@
   <li>University: <%= @scientist.university %></li>
   <li>Lab: <%= @scientist.lab.name %></li>
   <li>Experiments: <%= @scientist.all_experiments %></li>
+    <ul>
+      <% @scientist.experiments.each do |experiment| %>
+        <li id="experiment-<%= experiment.id %>"><%= experiment.name %> <%= button_to "Remove", scientist_experiment_path(experiment.id), params: {scientist_id: @scientist.id}, method: :delete %>
+        </li>
+      <% end %>
+    </ul>
 </ul>
