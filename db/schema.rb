@@ -18,8 +18,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_16_163344) do
     t.string "name"
     t.string "objective"
     t.integer "num_months"
+    t.bigint "scientist_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["scientist_id"], name: "index_experiments_on_scientist_id"
   end
 
   create_table "labs", force: :cascade do |t|
@@ -47,6 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_16_163344) do
     t.index ["lab_id"], name: "index_scientists_on_lab_id"
   end
 
+  add_foreign_key "experiments", "scientists"
   add_foreign_key "scientist_experiments", "experiments"
   add_foreign_key "scientist_experiments", "scientists"
   add_foreign_key "scientists", "labs"
