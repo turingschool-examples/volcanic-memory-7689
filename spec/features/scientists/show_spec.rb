@@ -25,7 +25,8 @@ RSpec.describe "Scientist Show Page" do
       expect(page).to have_content("Specialty: radioactivity")
       expect(page).to have_content("University: University of Paris")
       expect(page).to have_content("Lab: Fermilab")
-      expect(page).to have_content("Experiments: MINERvA, Time Pod")
+      expect(page).to have_content("MINERvA")
+      expect(page).to have_content("Time Pod")
     end
   end
 
