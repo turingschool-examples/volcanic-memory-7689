@@ -1,0 +1,10 @@
+<h1> Lab Show Page </h1>
+
+
+<%= @lab.name %>
+
+
+<% @scientists.each do |scientist| %>
+  <%= scientist.name  %>
+  <%= scientist.count_exp %>
+<% end %>
