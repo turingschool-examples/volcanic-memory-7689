@@ -4,7 +4,20 @@
 <p><%= "Specialty: #{@scientist.specialty}" %></p>
 <p><%= "University: #{@scientist.university}" %></p>
 <p><%= "Lab: #{@scientist.lab.name}" %></p>
+
 <h3>Experiments:</h3>
-  <% @scientist.experiments.each do |experiment| %>
-    <li><%= experiment.name %></li>
-  <% end %>
+  <style>table, th, td </style>
+  <table>
+    <thead>
+    </thead>
+    <tbody>
+      <% @scientist.active_scientist_experiment_names.each do |active_scientist_experiment_name| %>
+        <tr>
+          <td><%= active_scientist_experiment_name %></td>
+          <td>
+            <p><%= button_to "Remove", scientist_scientist_experiment_path(@scientist, @scientist.find_scientist_experiment_id(active_scientist_experiment_name)), method: :patch, params: {active: false} %></p>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
