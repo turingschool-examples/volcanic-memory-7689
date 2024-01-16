@@ -1,0 +1,14 @@
+<h1><%= @scientist.name %></h1>
+<p>Specialty: <%= @scientist.specialty %><p>
+<p>University: <%= @scientist.university %><p>
+<p>Lab: <%= @scientist.lab.name %><p>
+<p>Experiments: <p>Experiments: <% @scientist.experiments.each do |experiment| %>
+    <% if @scientist.experiments.last == experiment %>
+      <%= experiment.name %>
+    <% else %>
+      <%= experiment.name %>,
+    <% end %>
+  <% end %>
+</p>
+
+
