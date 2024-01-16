@@ -4,5 +4,8 @@
 <h3>University: <%= @scientist.university %></h3>
 <h2>Experiments:</h2>
 <% @scientist.experiments.each do |experiment| %>
-    <h3><%= experiment.name %></h3>
+    <div id = "experiment-<%= experiment.id %>">
+        <h3><%= experiment.name %></h3>
+        <%= button_to "Remove", scientist_experiment_path(@scientist, experiment), method: :delete %>
+    </div>
 <% end %>
