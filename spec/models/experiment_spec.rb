@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Experiment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it {should have_many :experiments_scientists}
+  it {should have_many(:scientists).through(:experiments_scientists)}
 end
