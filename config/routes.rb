@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :labs, only: :show do # UserStory-4
     resources :scientists, only: [:show], controller: "lab/scientists" # UserStory-1
   end
+  resources :experiments, only: [:index], controller: "experiments"
 end

@@ -3,10 +3,10 @@ require "rails_helper"
 RSpec.describe "experiment index page",type: :feature do
     before(:each) do
         @experiment_1 = Experiment.create(name: "Apples", objective: "rngi", num_months: 11)
+        @experiment_5 = Experiment.create(name: "Eggs", objective: "rngi", num_months: 7)
         @experiment_2 = Experiment.create(name: "Bananas", objective: "rngi", num_months: 10)
         @experiment_3 = Experiment.create(name: "Cherries", objective: "rngi", num_months: 9)
         @experiment_4 = Experiment.create(name: "Donuts", objective: "rngi", num_months: 8)
-        @experiment_5 = Experiment.create(name: "Eggs", objective: "rngi", num_months: 7)
         @experiment_6 = Experiment.create(name: "Frogs", objective: "rngi", num_months: 3)
     end
 
