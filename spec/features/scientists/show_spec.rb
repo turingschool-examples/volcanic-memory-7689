@@ -96,10 +96,8 @@ describe "User Story 2: Remove an Experiment from a Scientist" do
         
         expect(page).to have_content(@experiment_1.name)
 
-        save_and_open_page
         expect(page).to have_button("Remove Experiment")
         click_button "Remove Experiment"
-        save_and_open_page
 
         expect(current_path).to eq(lab_scientist_path(@lab_1, @scientist_1))
         expect(page).to_not have_content(@experiment_1.name)
@@ -107,7 +105,6 @@ describe "User Story 2: Remove an Experiment from a Scientist" do
         # Verify experiment remains for @scientist_2
         visit lab_scientist_path(@lab_1, @scientist_2)
         
-        save_and_open_page
         expect(page).to have_content(@experiment_1.name)
         expect(page).to have_button("Remove Experiment")
     end

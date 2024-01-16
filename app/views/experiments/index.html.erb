@@ -1,0 +1,11 @@
+<body>
+  <div class="row">
+    <p class='col-12'>Long Running Experiments at <%= @lab.name %></p>
+  </div>
+
+   <% @lab.long_running_experiments.each do |experiment| %>
+    <li><%= experiment.name %> — <%= experiment.num_months %> months</li>
+  <% end %>
+
+</div>
+ 
