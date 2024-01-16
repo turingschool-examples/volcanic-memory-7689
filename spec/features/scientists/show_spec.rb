@@ -15,7 +15,7 @@ RSpec.describe "Scientist Show Page" do
     @scientist_experiments_1 = ScientistExperiment.create!(scientist_id: @scientist_1.id, experiment_id: @experiment_1.id)
     @scientist_experiments_2 = ScientistExperiment.create!(scientist_id: @scientist_2.id, experiment_id: @experiment_2.id)
 
-    visit scientist_path(@scientist_1)
+    visit scientist_path(@scientist_1.id)
   end
 
   describe "User Story 1 - Scientist Show Page" do
