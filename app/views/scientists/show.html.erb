@@ -2,6 +2,8 @@
 <p> specialty: <%= @sci.specialty %> </p>
 <p> university: <%= @sci.university %> </p>
 <p> lab: <%= @sci.lab.name %> </p>
+<h3> Experiments: </h3>
 <% @sci.experiments.each do |exp| %>
-    <p><%= exp.name %></p>
+    <p> <%= exp.name %></p>
+<%= button_to "Remove experiment from work load", scientist_experiment_path(@sci, exp), method: :delete %>
 <% end %>
