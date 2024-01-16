@@ -26,7 +26,5 @@ RSpec.describe "Lab show page", type: :feature do
     expect(page).to have_content("Billy Bob, Experiments: 5")
     expect("Billy Bob, Experiments: 5").to appear_before("Sonja Brumfield, Experiments: 4")
     expect("Sonja Brumfield, Experiments: 4").to appear_before("Bruno Marfa, Experiments: 2")
-
-
   end
 end
